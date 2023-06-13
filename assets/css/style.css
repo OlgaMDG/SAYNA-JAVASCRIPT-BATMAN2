@@ -1,0 +1,1105 @@
+/*-----------Pour utliser une police de texte, on a 3 méthodes:----------
+1----Pour le fichier enregistré ou téléchargé dans le projet, on fait:---*/
+@font-face {
+    font-family: 'rajdhani';
+    src: url(../police/Rajdhani-Medium.ttf);
+}
+/*2----On utilise le lien sur @import dans le site:
+/*Rajdhani------
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+Space Grotesk------
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/*3-----On utlilisee les deux fonts dans un même lien@import sur le site:*/
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/*On choisit une seule méthode des 3 exemples qu'on a vu ci-dessus et on met toujours le selecteur avec la déclaration ci- après: (font-family et fon-weight...)
+h1{
+    color:red;
+    font-family: 'Rajdhani';
+    font-weight: 400;
+}
+*/
+
+/*------variable de couleur---------*/
+:root{
+    --yellow-color:#FFFF00;/*on met "--" et on met un nom qu'on veut et on copie les valeurs données dans la typographie*/
+    --yellow-light:#F8F184;
+    --blue-color:#19587D;
+    --brown-color:#B11313;
+    --black-light:#0D0E09;
+    --gradient-white:#eddebf67;/*sur btn, pour l'opacité, on a changé manuellement sur la palette de couleur le #EDDEBF en #eddebf67*/
+    --color2:#19587D;
+    --color3:#EDDEBF;
+    --gradient-red:#89000978;/*sur btn, pour l'opacité, on a changé manuellement sur la palette de couleur le #890008 en #89000978*/
+    --color:#c4c4c4;
+    --black-color:#000000;
+    --white-color:#FFFFFF;
+}
+
+/*-------première étapes pour uniformiser la page-------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*c'est pour ne pas aggrandir les box même si on ajoute des padding ou margin mais pour déplacer le contenu, garder la largeur et la hauteur dans le même taille précisée*/
+}
+
+/*------Pour les instructions sur le topographie, ex: h1 sera médium etc...-------*/
+h1{
+    font-family: 'rajdhani';
+    font-size: 36px;
+    font-weight: bold;/*medium*/
+}
+button{
+    font-family: 'rajdhani';
+    font-size: 20px;
+    font-weight: 400;/*medium*/
+}
+
+    /*des barres horizontales et verticaux sur le site*/
+    .up-bar{
+        border-top: 1px solid #BCBBBD;
+        position: absolute;
+        right: 102px;
+        left: 102px;
+        top: 132px;
+        opacity: 0.5;
+    }
+    .left-bar{
+        border: 1px solid #BCBBBD;
+        height: 100vh;
+        width: 1px;
+        position: fixed;
+        left: 102px;
+        opacity: 0.2;
+    }
+        /*eliminer les barres dans certaine sections*/
+        .masquer-barre > .left-bar {
+            display: none;
+        }
+    .rigth-bar{
+        border: 1px solid #BCBBBD;
+        height: 100%;
+        width: 1px;
+        position: fixed;
+        right: 102px;
+        opacity: 0.2;
+    }
+
+
+    /*fade in de tous les élément du site*/
+    @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }   
+      .fade-in{
+        animation: fade-in 1s ease-in-out;
+      }
+    /*un contener où on utilise que 80% de la page, avec des marges à gauche et droite, sur BOOTSTRAP c'est facile-------*/
+    .container{
+        width:80%;
+        margin: 0 auto;/*auto:mettre dans le même cas pour le margin-left et rigth et centre l'emement*/
+    }
+/*le body*/
+body{
+    background-color: black;
+    overflow-x: hidden;
+    color:white;
+    font-family: 'Space-Grotesk';
+    font-weight: 300;
+    /* opacity: 0.4;c'est une varience entre 0 et 1 ou sur la palette de couleur, on peut changer manuellement l'opacity, c'est rgba*/
+}
+body a{
+    cursor: pointer;
+}
+
+/*----------Design de la naviguation----------*/
+nav{
+    display: flex;
+    align-items: center;/*c'est pour le vertical*/
+    justify-content: space-between;/*c'est pour mettre les deux eléments dans les deux coin*/
+    padding: 40px 50px 80px 50px;
+}
+ul{
+    list-style: none;/*à eliminer les petites puces de la liste*/
+    display: flex;
+}
+nav ul li a{
+    color: var(--white-color);/*variable de couleur qu'on a déclaré là haut*/
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'rajdhani';
+    margin: 0 10px;
+    text-decoration: none;
+
+}
+ul a:hover{
+    color:var(--yellow-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+ul a.active{
+    text-decoration: underline;
+}
+
+/*--------designe de la partie entête hero----------*/
+ #hero{
+    background-image: url(../Illustrations/Bathome1.png);
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--blue-color);/*couleur que la section va prendre pendant si la photo a un problème*/
+    background-size: cover;/*ça couvre toujours en hauteur et en largeur, qu'importe la taille de l'écran*/ 
+ }
+ .content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;/*les ranger en vertical*/ 
+    text-align: center;
+    width: 46%;
+    margin: 0 auto;
+    padding-top: 150px;
+ }
+ /*#hero .container{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 42%;
+    padding: 10% 0;
+}*/
+.texte{
+    font-family: 'Space Grotesk';
+    font-weight: 300;
+    font-size: 18px;
+}
+h1+p.texte{
+    width: 90%;
+    font-stretch: ultra-expanded;
+    text-align: justify;
+    padding: 30px 0;
+}
+.bio{
+    font-family: 'rajdhani';
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 20px;
+}
+.annee{
+    font-family: 'Space Grotesk';
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+}
+#hero h2{
+    margin: 20px 0;
+}
+h2{
+    font-family: 'rajdhani';
+    font-size: 36px;
+    font-weight: 400;/*medium*/
+}
+.btn{
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 15px 30px;
+    margin: 10px 10px;
+    font-size: 20px;
+    font-weight: 400;
+    background: linear-gradient(
+        40deg,var(--gradient-white),var(--gradient-red)
+    );
+    box-shadow: var(--black-color) 5px 5px 60px;
+    cursor: pointer;
+    opacity: 0.4; /* Opacité initiale du bouton */
+    transition: opacity 0.3s; /* Transition pour une animation fluide */
+}
+.btn:hover{
+    opacity: 1; /* Opacité lors du survol */
+}
+.one .fleche{
+    display: block;
+    margin: 0 auto;
+    margin-top: 500px;
+}
+.scroll{
+    display: flex;/*l'element mère arrange les elements fils en block mais pas en ligne*/
+    flex-direction: column;/*en colonne*/
+    align-items: center;/*centrer*/
+    position: fixed;/*position fixe dans l'écran même si on scrolle la barre de naviguation*/
+    right: 50px;
+    top: 240px;
+}
+.scroll .social{
+    margin-top: 15px;
+}
+        /*changement du logo en jaune
+.logo-home {
+    position: relative;
+  }
+  
+  .logo {
+    position: absolute;/* pour positionner les images au même endroit l'une sur l'autre
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease-in-out;/* ajoute une transition fluide lors du changement d'opacité.
+  }
+        /*icones en jaune
+  .logo:hover {
+    opacity: 0;/*nous rendons l'image initiale transparente, ce qui révèle l'image de remplacement située en dessous
+  }
+  */
+  .logo:hover{
+    filter: invert(4%) sepia(95%) saturate(941%) hue-rotate(360deg) brightness(104%) contrast(105%);
+  }
+  .logo-aside:hover{
+    filter: invert(4%) sepia(95%) saturate(941%) hue-rotate(360deg) brightness(104%) contrast(105%);
+  }
+  .social:hover{
+    filter: invert(4%) sepia(95%) saturate(941%) hue-rotate(360deg) brightness(104%) contrast(105%);
+  }
+        
+/*---------design de la section batman-cinéma-----------*/
+#cinema {
+    margin-top: 145px;
+}
+.album-cinema{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+    /*zoomer le poster*/
+    .poster {
+        overflow: hidden;
+        display: inline-block;
+        transition: transform 0.3s;
+    }
+    .poster:hover {
+        transform: scale(1.1);
+    }
+
+/*---------design de la section nemésis-----------*/
+.nemesis{
+    margin-top: 100px;
+}
+.album-nemesis{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+img.survol {
+    width: 120px;
+    margin-left: 80px;
+    margin-bottom: -45px;
+}
+
+    /*image float droite*/
+    img.survoldroite{
+        display: block;
+        float: right;
+    }
+
+/*---------design de la section allies-----------*/
+.album-allies{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+.allies{
+    margin-top: 260px;
+}
+
+/*---------design de la section justice-----------*/
+.justice-texte{
+    width: 70%;
+    margin: 0 auto ;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;/*les ranger en vertical*/ 
+   margin-top: 150px;
+}
+.fond-photo{
+    background-image: url("../Illustrations/Bathome11.png");
+    height: 100vh;
+}
+
+/*---------design de la section multimédia----------*/
+.contact-titre{
+    text-align: center;
+    padding: 50px;
+}
+.slider-multimedia{
+    display: flex;
+    width: 60%;
+    margin:40px auto;/*lorsqu'on a mis width, on peut centrer avec margin en px et auto les deux côtés*/
+}
+.slider-image{
+    width: 100%;
+}
+.slider-texte{
+    padding: 15px;
+    background-color: rgb(68, 67, 67);
+    border-radius: 0 10px 10px 0 ;
+    color: #c4c4c4;
+}
+.slider-multimedia p{
+    font-size: 13px;
+    font-family: 'Space Grotesk';
+}
+.slider-multimedia span{
+    color: var(--yellow-color);
+}
+.slider-texte{
+    font-family: 'rajdhani';
+}
+.slider-texte h4{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.slider-texte h3{
+    font-size: medium;
+    margin: 10px 0;
+}
+#multimedia .container{
+    position: relative;
+}
+.fleche-droite{
+    position: absolute;
+    margin: -195px 1020px ;
+}
+.fleche-gauche{
+    position: absolute;
+    margin-top: 120px;
+}
+.image-bande-annonce{
+    margin-top: 150px;
+}
+button{
+    background-color: transparent;
+    border: transparent;
+}
+
+/*---------design de la section contact----------*/
+#contact{
+    margin-top: 150px;
+    background-color: rgba(128, 128, 128, 0.37);
+    height: 800px;
+}
+.formulaire{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 50px auto;
+    font-family: 'space grotesk';
+}
+.formulaire input{
+    background: none;
+    border: 0px solid rgba(128, 128, 128, 0.37);
+    border-bottom: 1px solid var(--color);
+}
+.newsletter{
+    margin-top: 20px;
+}
+
+.champ{
+    margin: 20px 0px 10px 0px;
+}
+.check{
+    display: inline;
+    margin-top: 20px;
+    font-size: small;
+    color: #c4c4c4;
+    border-bottom: 1px solid #c4c4c4;
+}
+#cage-a-cocher{
+    width: 75%;
+    border: none;
+}
+#contact img{
+    width: 15px;
+    transform: rotate(90deg);
+    float: right;
+}
+.check-texte{
+    margin-top: 10px;
+}
+    /*image cliquable
+    #mySelect {
+        -webkit-appearance: none; /* Masque l'apparence par défaut de la flèche 
+        -moz-appearance: none;
+        appearance: none;
+        padding: 5px 208px; /* Ajoute un espace pour afficher l'image 
+        background: url('../Logos/icon_flèche_2.png') no-repeat right center; /* Définit l'image de fond pour l'emplacement de la flèche
+        
+        font-size: small;
+        color: #c4c4c4;
+        border: none;
+
+        background-position: 0 0;
+        background-size: 1.6rem 1.6rem;
+        background-repeat: no-repeat;
+
+      }
+      #imageclickable{
+        background-color: red;
+        width: 15px;
+        transform: rotate(90deg);
+    }*/
+      
+.majuscule{
+    text-transform: uppercase;
+}
+.message{
+    width: 100%;
+    height: 20px;
+    margin-top: 10px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.check-boutton{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 20px auto;
+}
+.check-boutton label{
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    /*la taille de la bordure et le style */
+    border-width: 1px;
+    border-style: solid;
+    /* dégradation de la bordure */
+    border-image: linear-gradient(to right, var(--white-color), var(--blue-color)) 1;
+    /* Spécification de la façon dont l'image de dégradé est répétée */
+    border-image-repeat: stretch;
+
+}
+#contact .cta{
+    margin: 60px auto;
+    cursor: pointer;
+}
+    /*Une autre façon aussi de selectionner l'input
+#contact .formulaire input[type='email'],textarea{
+    border:none;
+    border-bottom: 1px solid #c4c4c4;
+    background-color: transparent;
+}*/
+::placeholder{
+    font-family: 'space grotesk';
+    font-size: 12px;
+}
+#contact input[type='radio']{
+    opacity: 0;
+}
+
+/*---------design du pop up----------*/
+
+/* Position du popup*/
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* caractères du popup */
+.popup .popuptext {
+  visibility: hidden;
+  width:250px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+/* Popup flèche */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/*Activer cette classe - masquer et afficher le popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+/*---------Page-game: section titre----------*/
+.meme-background{
+    background-image: url(../Illustrations/Batgame_1.png);
+    background-size: cover; 
+}
+.titre-game{
+    text-transform: uppercase;
+    font-family: 'rajdhani';
+    font-size: 3rem;
+    padding: 10rem 0 20rem 3rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    width: 400px;
+}
+
+#avant-quizz{
+    /*background-color: #000000;*/
+    text-align: center;
+    text-transform: uppercase;
+}
+.titre-hom-noir{
+    margin-top: 140px;
+}
+.hom-noir{
+    width: 80%;
+    margin: 50px;
+}
+.btn-game{
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 20px 75px;
+    font-size: 18px;
+    background: linear-gradient(
+        40deg,var(--gradient-white),#b88442
+    );
+    box-shadow: var(--black-color) 5px 5px 60px;
+    cursor: pointer;
+    opacity: 0.4; /* Opacité initiale du bouton */
+    transition: opacity 0.3s; /* Transition pour une animation fluide */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.btn-game:hover{
+    opacity: 1; /* Opacité lors du survol */
+}
+
+/*---------section quizz-----------*/
+/*.content-quizz{
+    display: none;
+}*/
+#quizz1, #quizz2, #quizz2, #quizz3, #quizz4, #quizz5, #quizz6, #quizz7, #quizz8, #quizz9, #quizz10, #quizz11, #quizz12, #quizz13, #quizz14, #quizz15{
+    display: none;
+}
+
+
+/*---------Page-game: section quizz1----------*/
+.num-quizz{
+    text-align: center;
+}
+.quizz{
+    display: flex;
+    width: 60%;
+    margin: 120px auto;
+    font-family: 'rajdhani';
+    font-size: 23px;
+}
+.form-quizz p{
+    margin-bottom: 30px;
+}
+.choix{
+    margin: 10px 0px;
+    background-color:  rgb(107, 101, 101);
+    padding: 7px 12px;
+    width: 120%;
+}
+.choix input[type='checkbox']{
+    transform: scale(2);
+}
+.choix label{
+    padding-left: 20px;
+}
+.btn-quizz{
+    margin-left: 40%;
+}
+
+/*---------Page-game: section quizz2----------*/
+.quizz2-img{
+    margin-right: 60px;
+}
+.quizz.qz2{
+    width: 65%;
+}
+
+/*---------Page-game: section quizz3----------*/
+.quizz.qz3{
+    width: 90%;
+}
+
+/*---------Page-game: section quizz4----------*/
+.quizz.qz4{
+    width: 45%;
+    display: block;
+}
+.quizz4-img{
+    margin: 0 0 -150px -120px;
+}
+.form-quizz.qz4{
+    margin-left: 25%;
+}
+
+/*---------Page-game: section quizz5----------*/
+.quizz.qz5{
+    width: 80%;
+}
+.form-quizz.qz5{
+    margin-left: 50px;
+}
+
+/*---------Page-game: section quizz6----------*/
+
+.quizz.qz6{
+    width: 45%;
+    display: block;
+}
+.quizz6-img{
+    margin: 0 0 -150px -120px;
+}
+.form-quizz.qz6{
+    margin-left: 25%;
+}
+.form-quizz.qz6 p{
+    width: 150%;
+}
+.quizz6-pied{
+    display: block;
+    width: 110%;
+}
+.quizz6-img1{
+    margin: -100px 0 -260px 120px;
+}
+.quizz6-img2{
+    margin: -100px 0px 0px 550px;
+}
+
+/*---------Page-game: section quizz7----------*/
+.quizz.qz7{
+    width: 100%;
+}
+.form-quizz.qz7{
+    margin-left: 50px;
+    width: 45%;
+}
+
+/*---------Page-game: section quizz8----------*/
+.quizz.qz8{
+    width: 80%;
+}
+.form-quizz.qz8 .choix{
+    width: 90%;
+}
+
+/*---------Page-game: section quizz9----------*/
+.quizz.qz9{
+    width: 50%;
+    display: block;
+}
+.quizz9-img{
+    margin: 0 0 -190px -150px;
+}
+.form-quizz.qz9 .choix{
+    width: 125%;
+}
+.form-quizz.qz9 p{
+    width: 140%;
+}
+.form-quizz.qz9{
+    margin-left: 150px;
+}
+.quizz9-pied{
+    display: block;
+    width: 110%;
+}
+.quizz9-img1{
+    margin: -100px 0 -200px 170px;
+}
+.quizz9-img2{
+    margin: -100px 0px -180px 400px;
+}
+/*---------Page-game: section quizz10----------*/
+.quizz10-img{
+    margin-right: 50px;
+}
+.quizz10-new{
+    display: flex;
+}
+.quizz10-tete-img{
+    margin-top: -150px;
+}
+.form-quizz.qz10 .choix{
+    width: 220%;
+}
+.form-quizz.qz10 p{
+    width: 100%;/*A voiiir quand on affiche la section une à une*/
+}
+.form-quizz.qz10{
+    margin-left: 50px;
+}
+.quizz10-pied{
+    display: block;
+    margin-top: -100px;
+}
+.quizz10-pied img{
+    margin-bottom: -80px;
+}
+/*---------Page-game: section quizz11----------*/
+.quizz.qz11{
+    width: 85%;
+}
+.form-quizz.qz11{
+    width: 55%;
+}
+.form-quizz.qz11 .choix{
+    width: 85%;
+}
+
+/*---------Page-game: section quizz12----------*/
+.quizz.qz12{
+    width: 45%;
+    display: block;
+}
+
+.form-quizz.qz12{
+    width: 55%;
+}
+.form-quizz.qz12 p{
+    width: 200%;
+}
+.quizz12-img{
+    margin: 0 0 -250px -170px;
+}
+.form-quizz.qz12{
+    margin-left: 25%;
+}
+.form-quizz.qz12 .choix{
+    width: 180%;
+}
+
+/*---------Page-game: section quizz13----------*/
+.quizz.qz13{
+    width: 45%;
+    display: block;
+}
+
+.form-quizz.qz13{
+    width: 55%;
+}
+.form-quizz.qz13 p{
+    width: 200%;
+}
+.quizz13-img{
+    margin: 0 0 -405px -250px;
+}
+.form-quizz.qz13{
+    margin-left: 25%;
+}
+.form-quizz.qz13 .choix{
+    width: 180%;
+}
+
+/*---------Page-game: section quizz14----------*/
+.quizz.qz14{
+    width: 95%;
+}
+.form-quizz.qz14 .choix{
+    width: 95%;
+}
+
+/*---------Page-game: section quizz15----------*/
+.quizz.qz15{
+    width: 70%;
+}
+.form-quizz.qz15 .choix{
+    width: 100%;
+}
+.quizz15-img{
+    margin-right: 50px;
+    margin-left: -50px;
+}
+
+/*---------design de la section citation----------*/
+#citation{
+    margin: 90px;
+}
+.citation-content{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+.citation-texte{
+    font-family: 'space grotesk';
+    font-size: 18px;
+}
+.citation-auteur{   
+    font-size: 16px;
+    font-family: 'rajdhani';
+    width: 50%;
+    margin: 20px auto;
+}
+#citation .guillemet-close{
+float: right;
+}
+
+/*---------design footer----------*/
+footer{
+    margin-top: 200px;
+}
+.footer-texte{
+    text-align: center;
+}
+.footer-logo{
+    margin-top: 50px;
+}
+footer .logo-social{
+    padding: 10px;
+}
+
+/*--------------Responsive styles---------------*/
+@media (max-width: 500px) {
+    *{
+        margin: 0px;
+    }
+    .up-bar{
+        right: 50px;
+        left: 50px;
+        top: 90px;
+    }
+    .left-bar{
+        left: 50px;
+    }
+        /*eliminer les barres dans certaine sections*/
+        .masquer-barre > .left-bar {
+            display: none;
+        }
+    nav{
+        display: block;
+        padding: 10px 0 ;
+    }
+    .rigth-bar{
+        right: 50px;
+    }
+    .logo-home img{
+        width: 25%;
+    }
+    nav ul li a {
+        font-size: 20px;
+        font-weight: 300;
+    }
+    .scroll {
+        right: -15px;
+    }
+    .scroll img{
+        width: 75%;
+    }
+    .scroll .social{
+        padding-right:   13px;
+    }
+    .texte {
+        font-size: 15px;
+    }
+    h2 {
+        font-size: 30px;
+        font-weight: 300;
+    }
+    .cta a{
+        display: block;
+    }
+    .btn {
+        font-size: 10px;
+        font-weight: 300;
+    }
+    #hero .fleche{
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    h1{
+        font-size: 30px;
+    }
+    .container{
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .content{
+        padding-top: 0px;
+     }
+
+    #hero{
+        height: 400px;
+    }
+    #hero .container{
+        width: 100%;
+        margin: 5px auto;
+    }
+    #cinema {
+        margin-top: 0px;
+    }
+    .album-cinema{
+        display: block;
+    }
+    .poster{
+        width: 75%;
+    }
+    .nemesis{
+        margin-top: 0px;
+    }
+    .album-nemesis{
+        display: block;
+    }
+    .album-allies{
+        display: block;
+    } 
+    .container img {
+        display: inline-block;
+        padding-top: 17px;
+    }
+    .bio{
+        font-size: 15px;
+        text-align: center;
+        padding-top: 15px;
+    }
+    .annee{
+        font-size: 15px;
+    }
+    img.survol {
+        width: 100px;
+        margin-left: -100px;
+    }
+    img.survoldroite{
+        width: 50%;
+    }
+    .allies{
+        margin-top: 150px;
+    }
+    .justice-texte{
+        width: 70%;
+        margin: 0 auto ;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;/*les ranger en vertical*/ 
+        margin-top: 30px;
+    }
+    section h1{
+        text-align: left;
+    }
+    .fond-photo {
+        display: none;
+    }
+    .slider-multimedia{
+        display: flex;
+        width: 60%;
+        margin:10px auto;/*lorsqu'on a mis width, on peut centrer avec margin en px et auto les deux côtés*/
+    }
+    .slider-multimedia{
+        display: block;
+        margin-top: 20px;
+    }
+    .slider-texte{
+        padding: 5px;
+        background-color: rgb(68, 67, 67);
+        border-radius: 0 0px 10px 10px ;
+        width: 150%;
+        margin: 0 -53px;
+    }
+    .fleche-droite{
+        position: absolute;
+        margin: -85px 700px ;
+    }
+    .fleche-gauche{
+        position: absolute;
+        margin-top: 120px;
+    }
+    .fleche-droite{
+        margin: -420px 100px;
+    }
+    .fleche-gauche{
+        position: absolute;
+        margin: 120px -150px;
+    }
+    .image-bande-annonce{
+        margin-top: 0px;
+    }
+    .image-bande-annonce img{
+        /*display: none;*/
+        width: 75%;
+        height: 75%;
+    }
+    #contact{
+        margin-top: 0px;
+        height: 650px;
+    }
+    .formulaire{
+        width: 75%;
+        margin: 0px auto;
+    }
+    #citation{
+        margin: 0px;
+    }
+    .citation-content{
+        width: 80%;
+    }
+    .citation-texte{
+        font-size: 15px;
+        margin-top: 20px;
+    }
+    .citation-auteur{   
+        font-size: 12px;
+        width: 60%;
+        margin: 10px auto;
+    }
+    #citation img{
+        width: 40px;
+    }
+    #contact .cta{
+        margin: 20px auto;
+    }
+    .guillemet-close{
+        margin-top: -50px;
+    }
+    .guillemet-open{
+        float: left;
+        margin-top: -25px;
+    }
+    footer{
+        margin-top: 20px;
+    }
+    .footer-texte{
+        font-size: 8px;
+    }
+    .footer-logo a{
+        display: block;
+        margin-bottom: 5px;
+    }
+}
