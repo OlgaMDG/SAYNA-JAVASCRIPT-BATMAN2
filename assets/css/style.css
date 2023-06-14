@@ -607,9 +607,9 @@ button{
 }
 
 /*---------section quizz-----------*/
-/*.content-quizz{
+.content-quizz{
     display: none;
-}*/
+}
 #quizz1, #quizz2, #quizz2, #quizz3, #quizz4, #quizz5, #quizz6, #quizz7, #quizz8, #quizz9, #quizz10, #quizz11, #quizz12, #quizz13, #quizz14, #quizz15{
     display: none;
 }

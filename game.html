@@ -8,10 +8,20 @@
     <link rel="stylesheet" href="./assets/css/style.css"> 
 </head>
 <body>
-    <div class="up-bar"></div>
-    <div class="left-bar"></div>
-    <div class="rigth-bar"></div>
-    <div class="meme-background">
+        <!--Notre pop up-->
+        <div class="popup">
+            <div class="message-popup">
+                <h1>Message reçu!</h1>
+            </div>
+        </div>
+        
+        <!--Notre cadre sur le page-->
+        <div class="up-bar"></div>
+        <div class="left-bar"></div>
+        <div class="rigth-bar"></div>
+        <div class="meme-background">
+        
+        <!--En-tête-->
         <header id="haut-page">    
             <nav class="container">
                 <div class="logo-home">
@@ -568,7 +578,7 @@
 
 btnQuizzs.forEach((btnQuizz) => {
   btnQuizz.addEventListener('click', () => {
-    const currentQuizz = btnQuizz.dataset.quizz;
+    const currentQuizz = btnQuizz.getAttribute("id");
     console.log(currentQuizz);
     const currentSection = document.querySelector(`#quizz${currentQuizz}`);
     const nextQuizz = Number(currentQuizz) + 1;
