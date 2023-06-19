@@ -96,8 +96,9 @@ button{
           transform: translateX(0);
         }
       }   
-      .fade-in{
-        animation: fade-in 1s ease-in-out;
+      .fade-in {
+        opacity: 0;
+        animation: fade-in 1s ease-in-out forwards;
       }
     /*un contener où on utilise que 80% de la page, avec des marges à gauche et droite, sur BOOTSTRAP c'est facile-------*/
     .container{
@@ -111,7 +112,7 @@ body{
     color:white;
     font-family: 'Space-Grotesk';
     font-weight: 300;
-    /* opacity: 0.4;c'est une varience entre 0 et 1 ou sur la palette de couleur, on peut changer manuellement l'opacity, c'est rgba*/
+    font-family: 'rajdhani';
 }
 body a{
     cursor: pointer;
@@ -175,6 +176,7 @@ ul a.active{
     font-family: 'Space Grotesk';
     font-weight: 300;
     font-size: 18px;
+    font-family: 'rajdhani';
 }
 h1+p.texte{
     width: 90%;
@@ -282,6 +284,77 @@ h2{
         transform: scale(1.1);
     }
 
+    /*afficher le profil du poster avec son nom*/
+    .image-container {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        transition: transform 0.3s;
+      }
+      
+      .poster {
+        width: 100%;
+        height: auto;
+      }
+      
+      .overlay {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 0;
+        opacity: 0;
+        transition: height 0.3s, opacity 0.3s;
+        background-color: rgba(0, 0, 0, 0.5);
+    
+      }
+      
+      .image-container:hover {
+        transform: scale(1.1);
+      }
+      
+      .image-container:hover .overlay {
+        height: 20%;
+        opacity: 1;
+      }
+      
+      .profila {
+        position: absolute;
+        width: 17%;
+        bottom: 20%;
+        left: 7%;
+      }
+      
+      .overlay .content {
+        position: absolute;
+        bottom: 20%;
+        left: 5%;
+        width: 80%;
+        padding: 5% 10% 5% 18%;
+        background-color: #3e1314;
+        background: linear-gradient(90deg, transparent, #3e1314);
+      }
+      
+      h3, p {
+        margin: 0;
+        position: relative;
+        z-index: 1;
+      }
+      
+    .overlay h3 {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      
+    .overlay p {
+        font-size: 8px;
+      }
+      
+      .annee {
+        color: orange;
+      }
 /*---------design de la section nemésis-----------*/
 .nemesis{
     margin-top: 100px;
@@ -395,12 +468,15 @@ button{
     width: 50%;
     margin: 50px auto;
     font-family: 'space grotesk';
+    z-index: 1;
 }
-.formulaire input{
+.formulaire #input{
     background: none;
     border: 0px solid rgba(128, 128, 128, 0.37);
     border-bottom: 1px solid var(--color);
+    color: #c4c4c4;
 }
+
 .newsletter{
     margin-top: 20px;
 }
@@ -427,28 +503,33 @@ button{
 .check-texte{
     margin-top: 10px;
 }
-    /*image cliquable
-    #mySelect {
-        -webkit-appearance: none; /* Masque l'apparence par défaut de la flèche 
+    /*image cliquable*/
+
+    select {
+        width: 100%;
+        height: 25px;
+        font-size: 18px;
+        border: 2px solid #ccc;
+        -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        padding: 5px 208px; /* Ajoute un espace pour afficher l'image 
-        background: url('../Logos/icon_flèche_2.png') no-repeat right center; /* Définit l'image de fond pour l'emplacement de la flèche
-        
-        font-size: small;
+        border: 0px solid rgba(128, 128, 128, 0.37);
+        border-bottom: 1px solid var(--color);
         color: #c4c4c4;
-        border: none;
-
-        background-position: 0 0;
-        background-size: 1.6rem 1.6rem;
-        background-repeat: no-repeat;
-
+        background: url("../Logos/icon_flèche_2.png") 100% / 3% no-repeat;
+        font-family: 'space grotesk';
+        font-size: small;
+        margin-top: 10px;
       }
-      #imageclickable{
-        background-color: red;
-        width: 15px;
-        transform: rotate(90deg);
-    }*/
+      select:focus{
+        color:var(--black-color);
+      }
+      select{
+        font-family: '';
+      }
+      select::-ms-expand {
+        display: none; /* supprimer la fléche par défaut*/
+      }
       
 .majuscule{
     text-transform: uppercase;
@@ -461,6 +542,13 @@ button{
     border: none;
     border-bottom: 1px solid #c4c4c4;
 }
+.message:hover{
+    height: 100px;
+    color:  #c4c4c4;
+}
+.message:valid{
+    color:  #c4c4c4;
+}
 
 .check-boutton{
     display: flex;
@@ -468,6 +556,17 @@ button{
     width: 60%;
     margin: 20px auto;
 }
+.check-boutton label:hover{
+    transform: scale(1.1);
+}
+.check-boutton label:active{
+    background-color: #c4c4c4;
+    color: var(--black-color);
+}
+/*.check-boutton label.active{
+    background-color: #c4c4c4;
+    color: var(--black-color);
+}*/
 .check-boutton label{
     color: var(--white-color);
     text-decoration: none;
@@ -502,62 +601,35 @@ button{
     opacity: 0;
 }
 
+/*select couleur*/
+select option {
+    background: black;
+    color: white;
+}
+select option:checked {
+    background: gray;
+    color: white;
+}
 /*---------design du pop up----------*/
-
-/* Position du popup*/
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.popup{
+    /*background-color: rgb(41, 38, 38);*/
+    background-color: rgb(216, 25, 25);
+    width:50%;
+    margin: auto;
+    text-align: center;
+    position: fixed;
+    top: 100px;
+    left:320px;
+    display: none;
+    z-index: 2;
 }
-
-/* caractères du popup */
-.popup .popuptext {
-  visibility: hidden;
-  width:250px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-/* Popup flèche */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/*Activer cette classe - masquer et afficher le popup */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+.message-popup{
+    padding: 160px;
+    margin: 50px;
+    background-color: rgb(68, 67, 67);
+    box-shadow: var(--black-color) 5px 5px 60px;
+    border-radius: 10px;
+    position: fixed;
 }
 
 /*---------Page-game: section titre----------*/
@@ -601,28 +673,137 @@ button{
     transition: opacity 0.3s; /* Transition pour une animation fluide */
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-top: 15%;
 }
 .btn-game:hover{
     opacity: 1; /* Opacité lors du survol */
 }
 
-/*---------section quizz-----------*/
-.content-quizz{
-    display: none;
+/*---------section quizz avec API-----------*/
+#avant-quizz .demarrer{
+    margin-top: 0px;
 }
-#quizz1, #quizz2, #quizz2, #quizz3, #quizz4, #quizz5, #quizz6, #quizz7, #quizz8, #quizz9, #quizz10, #quizz11, #quizz12, #quizz13, #quizz14, #quizz15{
+#quizz{
+    width: 100%;
+    margin: 0 auto;
+    display: flex; 
+    justify-content: center;
+    font-size: 22px;
+}
+#quizz h1{
+    text-align: center;
+}
+/*Ranger le container-quizz*/
+.container-quizz {
+    display: flex;
+    align-items: flex-start; /* Ajuster l'alignement vertical */
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto; 
+}  
+.flex-item {
+    flex: 1;
+}
+.item2 {
+  align-self: center; /* Aligner au centre par rapport à la hauteur de la première div */
+}
+.bouton-quizz {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+h3#question {
+    margin-top: 10%;
+}
+form#response-form {
+    margin-top: 5%;
+}
+form#response-form div{
+    margin: 10px 0px;
+    background-color:  rgb(107, 101, 101);
+    padding: 7px 12px;
+    width: 150%;
+}
+    /*changer le cercle en un caréé sur le radio button*/
+    input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 0;
+        margin-right: 10px;
+      }
+      
+      input[type="radio"]:checked {
+        border: 2px solid white;
+        background-color: #b88442;
+      }
+
+/*Le score*/
+#score-popup{
+    background-color: #563517;
+    background: linear-gradient(-45deg, #563517, black);
+    width:65%;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    top: 50px;
+    left:250px;
+    display: none;
+    padding: 5%;
+    box-shadow: #563517 5px 5px 20px;
+}
+#score-popup h1{
+    text-decoration: underline;
+    margin-bottom: 10%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+#score-popup p{
+    width: 75%;
+    margin: 0 auto;
+}
+
+
+/*Le box d'erreur*/
+#dialog-box{
+    background-color: red;
+    background: linear-gradient(-45deg, red, black);
+    width:25%;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    top: 150px;
+    left:500px;
+    display: none;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+/*---------section quizz-----------*/
+
+/*#quizz1, #quizz2, #quizz2, #quizz3, #quizz4, #quizz5, #quizz6, #quizz7, #quizz8, #quizz9, #quizz10, #quizz11, #quizz12, #quizz13, #quizz14, #quizz15{
+    display: none;
+}*/
+.content-quizz{
     display: none;
 }
 
 
 /*---------Page-game: section quizz1----------*/
 .num-quizz{
+    margin-bottom: -50px;
     text-align: center;
 }
 .quizz{
     display: flex;
     width: 60%;
-    margin: 120px auto;
+    margin: 100px auto;
     font-family: 'rajdhani';
     font-size: 23px;
 }
@@ -641,9 +822,9 @@ button{
 .choix label{
     padding-left: 20px;
 }
-.btn-quizz{
+/*.btn-quizz{
     margin-left: 40%;
-}
+}*/
 
 /*---------Page-game: section quizz2----------*/
 .quizz2-img{
@@ -660,129 +841,142 @@ button{
 
 /*---------Page-game: section quizz4----------*/
 .quizz.qz4{
-    width: 45%;
-    display: block;
-}
-.quizz4-img{
-    margin: 0 0 -150px -120px;
+    width: 100%;
 }
 .form-quizz.qz4{
-    margin-left: 25%;
+    margin-left: 50px;
+    width: 45%;
+}
+.quizz4-img{
+    margin: 0 0 -100px 50px;
+}
+.quizz4-tete-img{
+    margin-top: -400px;
+    margin-left: 350px;
 }
 
 /*---------Page-game: section quizz5----------*/
 .quizz.qz5{
     width: 80%;
 }
-.form-quizz.qz5{
-    margin-left: 50px;
+.form-quizz.qz5 .choix{
+    width: 90%;
 }
 
 /*---------Page-game: section quizz6----------*/
-
 .quizz.qz6{
     width: 45%;
     display: block;
 }
+
+.form-quizz.qz6{
+    width: 55%;
+}
+.form-quizz.qz6 p{
+    width: 200%;
+}
 .quizz6-img{
-    margin: 0 0 -150px -120px;
+    margin: 0 0 -250px -170px;
 }
 .form-quizz.qz6{
     margin-left: 25%;
 }
-.form-quizz.qz6 p{
-    width: 150%;
+.form-quizz.qz6 .choix{
+    width: 180%;
 }
 .quizz6-pied{
     display: block;
-    width: 110%;
+    margin-top: -100px;
 }
-.quizz6-img1{
-    margin: -100px 0 -260px 120px;
-}
-.quizz6-img2{
-    margin: -100px 0px 0px 550px;
+.quizz6-pied img{
+    margin-bottom: -80px;
 }
 
 /*---------Page-game: section quizz7----------*/
 .quizz.qz7{
-    width: 100%;
+    width: 50%;
+    display: block;
+}
+.quizz7-img{
+    margin: 0 0 -190px -150px;
+}
+.form-quizz.qz7 .choix{
+    width: 125%;
+}
+.form-quizz.qz7 p{
+    width: 140%;
 }
 .form-quizz.qz7{
-    margin-left: 50px;
-    width: 45%;
+    margin-left: 150px;
+}
+
+.quizz7-img1{
+    margin: -100px 0 -200px 170px;
+}
+.quizz7-img2{
+    margin: -100px 0px -180px 400px;
 }
 
 /*---------Page-game: section quizz8----------*/
 .quizz.qz8{
-    width: 80%;
+    width: 45%;
+    display: block;
+}
+
+.form-quizz.qz8{
+    width: 55%;
+}
+.form-quizz.qz8 p{
+    width: 200%;
+}
+.quizz8-img{
+    margin: 0 0 -405px -250px;
+}
+.form-quizz.qz8{
+    margin-left: 25%;
 }
 .form-quizz.qz8 .choix{
-    width: 90%;
+    width: 180%;
 }
 
 /*---------Page-game: section quizz9----------*/
 .quizz.qz9{
-    width: 50%;
-    display: block;
-}
-.quizz9-img{
-    margin: 0 0 -190px -150px;
+    width: 95%;
 }
 .form-quizz.qz9 .choix{
-    width: 125%;
+    width: 95%;
 }
-.form-quizz.qz9 p{
-    width: 140%;
+
+/*---------Page-game: section quizz10----------*/
+.quizz.qz10{
+    width: 70%;
 }
-.form-quizz.qz9{
-    margin-left: 150px;
+.form-quizz.qz10 .choix{
+    width: 100%;
 }
-.quizz9-pied{
+.quizz10-img{
+    margin-right: 50px;
+    margin-left: -50px;
+}
+
+
+/*---------Page-game: section quizz11----------*/
+
+.quizz.qz11{
+    width: 40%;
+}
+.form-quizz.qz11{
+    margin-left: 50px;
+}
+.quizz11-pied{
     display: block;
     width: 110%;
 }
-.quizz9-img1{
-    margin: -100px 0 -200px 170px;
+.quizz11-img1{
+    margin: -100px 0 -260px 120px;
 }
-.quizz9-img2{
-    margin: -100px 0px -180px 400px;
-}
-/*---------Page-game: section quizz10----------*/
-.quizz10-img{
-    margin-right: 50px;
-}
-.quizz10-new{
-    display: flex;
-}
-.quizz10-tete-img{
-    margin-top: -150px;
-}
-.form-quizz.qz10 .choix{
-    width: 220%;
-}
-.form-quizz.qz10 p{
-    width: 100%;/*A voiiir quand on affiche la section une à une*/
-}
-.form-quizz.qz10{
-    margin-left: 50px;
-}
-.quizz10-pied{
-    display: block;
-    margin-top: -100px;
-}
-.quizz10-pied img{
-    margin-bottom: -80px;
-}
-/*---------Page-game: section quizz11----------*/
-.quizz.qz11{
-    width: 85%;
-}
-.form-quizz.qz11{
-    width: 55%;
-}
-.form-quizz.qz11 .choix{
-    width: 85%;
+.quizz11-img2{
+    margin: -100px 0px 0px 550px;
 }
 
 /*---------Page-game: section quizz12----------*/
@@ -790,63 +984,11 @@ button{
     width: 45%;
     display: block;
 }
-
-.form-quizz.qz12{
-    width: 55%;
-}
-.form-quizz.qz12 p{
-    width: 200%;
-}
 .quizz12-img{
-    margin: 0 0 -250px -170px;
+    margin: 0 0 -150px -120px;
 }
 .form-quizz.qz12{
     margin-left: 25%;
-}
-.form-quizz.qz12 .choix{
-    width: 180%;
-}
-
-/*---------Page-game: section quizz13----------*/
-.quizz.qz13{
-    width: 45%;
-    display: block;
-}
-
-.form-quizz.qz13{
-    width: 55%;
-}
-.form-quizz.qz13 p{
-    width: 200%;
-}
-.quizz13-img{
-    margin: 0 0 -405px -250px;
-}
-.form-quizz.qz13{
-    margin-left: 25%;
-}
-.form-quizz.qz13 .choix{
-    width: 180%;
-}
-
-/*---------Page-game: section quizz14----------*/
-.quizz.qz14{
-    width: 95%;
-}
-.form-quizz.qz14 .choix{
-    width: 95%;
-}
-
-/*---------Page-game: section quizz15----------*/
-.quizz.qz15{
-    width: 70%;
-}
-.form-quizz.qz15 .choix{
-    width: 100%;
-}
-.quizz15-img{
-    margin-right: 50px;
-    margin-left: -50px;
 }
 
 /*---------design de la section citation----------*/
@@ -862,11 +1004,13 @@ button{
     font-family: 'space grotesk';
     font-size: 18px;
 }
+
 .citation-auteur{   
     font-size: 16px;
     font-family: 'rajdhani';
     width: 50%;
-    margin: 20px auto;
+    margin: 10px auto;
+    color: rgb(75, 66, 66);
 }
 #citation .guillemet-close{
 float: right;
@@ -884,6 +1028,47 @@ footer{
 }
 footer .logo-social{
     padding: 10px;
+}
+
+/* effet d'apparition progressive*/
+.slide {
+    transform: translateX(-100%);
+    transition: transform 1s;
+}
+
+
+/*effet de transition: avec class reveal*/
+.reveal{
+    opacity: 0;
+    transform: translateY(-30px);
+}
+.reveal-visible{
+    opacity:1;
+    transform: translateY(0);
+    transition: 1s cubic-bezier(.5, 0, 0, 1);
+}
+
+/*zoom image pendant scrolling*/
+.zoom-image {
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+  transform-origin: 50% 50%;
+}
+
+/*notre souris*/
+.container-souri {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+  
+#bat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
 }
 
 /*--------------Responsive styles---------------*/
@@ -1102,4 +1287,43 @@ footer .logo-social{
         display: block;
         margin-bottom: 5px;
     }
+    .scroll{
+        display: none;
+    }
+
+    /*---------------------Page Game------------------------*/
+    .container-quizz{
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+    .flex-item{
+        width: 75%;
+    }
+    #quizz{
+        width: 75%;
+    }
+    .titre-game{
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .item2{
+        width: 65%;
+    }
+    .meme-background{
+        background-image: none;
+        background-color: #563517;
+    }
+    #score-popup{
+        top: 5%;
+        left:4%;
+        width: 90%;
+    }
+    #dialog-box{
+        width: 90%;
+        top: 25%;
+        left:5%;
+    }
+
 }

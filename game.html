@@ -5,23 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Batman ODC2 | Home</title>
+    <!--cdn Jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="./assets/css/style.css"> 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
-        <!--Notre pop up-->
-        <div class="popup">
-            <div class="message-popup">
-                <h1>Message reçu!</h1>
-            </div>
-        </div>
-        
-        <!--Notre cadre sur le page-->
-        <div class="up-bar"></div>
-        <div class="left-bar"></div>
-        <div class="rigth-bar"></div>
-        <div class="meme-background">
-        
-        <!--En-tête-->
+    <div class="up-bar"></div>
+    <div class="left-bar"></div>
+    <div class="rigth-bar"></div>
+    <div class="meme-background">
         <header id="haut-page">    
             <nav class="container">
                 <div class="logo-home">
@@ -40,507 +34,86 @@
             </nav>
         </header>
     
-        <main>
             <!--Les réseaux sociaux scrolling -->
             <div class="scroll">
                 <a href="#haut-page"><img src="./assets/Logos/logo_bat_flèche.png" alt="" class="logo-aside"></a>
                 <a href="https://www.facebook.com"><img class="social" src="./assets/Logos/icon_facebook.png" alt=""></a>
                 <a href="https://www.twitter.com"><img class="social" src="./assets/Logos/icon_tw.png" alt=""></a>
                 <a href="https://www.instagram.com"><img class="social" src="./assets/Logos/icon_ig.png" alt=""></a>
-                <a href="#bas-page"><img src="./assets/Logos/logo_bat_flèche_2.png" alt="" cla class="logo-aside"></a>                    
+                <a href="#avant-quizz"><img src="./assets/Logos/logo_bat_flèche_2.png" alt="" cla class="logo-aside"></a>                    
             </div>
-            <section id="titre-game one" class="one">
+            <section id="titre-game one" class="one fade-in">
                 <div class="container">
                     <div class="titre-game">
-                        <p>LET&apos;s play a little game...</p>
+                        <p class="fade-in">LET&apos;s play a little game...</p>
                     </div>
                 </div>
             </section>
-    </div>
+            </div>
             <section id="avant-quizz">
                 <div class="container">
-                    <a href=""><img src="./assets/Logos/flèche_down_header.png" class="fleche" alt="Flèche down"></a>
-                    <h1 class="titre-hom-noir">Connaissez vous bien le chevalier noir?</h1>
+                    <a href="#avant-quizz"><img src="./assets/Logos/flèche_down_header.png" class="fleche" alt="Flèche down"></a>
+                    <h1 class="titre-hom-noir fade-in">Connaissez vous bien le chevalier noir?</h1>
                     <img class="hom-noir" src="./assets/Illustrations/Batgame_2.png" alt="L'homme noir avec son cap">
-                    <button class="btn-game demarrer">Démarrez le quizz</button>
+                    <button class="btn-game demarrer" id="start-button">Démarrez le quizz</button>
                 </div>
             </section>
-            <section id="quizz1" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">1/15</h1>
-                    </div>
-                    <div class="quizz">
-                        <div>
-                            <img src="./assets/Illustrations/Batgame_3.png" alt="">
-                        </div>
-                        <div class="form-quizz">
-                            <p>
-                                Quel est l&apos;autre nom de l&apos;Homme-Mystère ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix11">
-                                <label for="choix11">Le Sphinx</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix12">
-                                <label for="choix12">Saphir</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix13">
-                                <label for="choix13">Le Joker </label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz2" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">2/15</h1>
-                    </div>
-                    <div class="quizz qz2">
-                        <div class="quizz2-img">
-                            <img src="./assets/Illustrations/Batgame_4.png" alt="">
-                        </div>
-                        <div class="form-quizz">
-                            <p>
-                                Quelle est l&apos;ancienne profession de Harley Quinn ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix21">
-                                <label for="choix">Infirmière</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix22">
-                                <label for="choix22">Psychiatre</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix23">
-                                <label for="choix23">Dentiste</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz3" class="content-quizz">
-                <div class="container">
-                    <div class="quizz3-img">
-                        <h1 class="num-quizz">3/15</h1>
-                    </div>
-                    <div class="quizz qz3">
-                        <div>
-                            <img src="./assets/Illustrations/Batgame_5.png" alt="">
-                        </div>
-                        <div class="form-quizz">
-                            <p>
-                                Quel est l&apos;objet fétiche de Double Face ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix31">
-                                <label for="choix31">Une pièce</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix32">
-                                <label for="choix32">Un livre</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix32">
-                                <label for="choix32">Un couteau</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz4" class="content-quizz">
-                <div class="container">
-                    <div >
-                        <h1 class="num-quizz">4/15</h1>
-                    </div>
-                    <div class="quizz qz4">
-                        <div class="quizz4-img">
-                            <img src="./assets/Illustrations/Batgame_6.png" alt="">
-                        </div>
-                        <div class="form-quizz qz4">
-                            <p>
-                                Qui a produit Batman en 1964 ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix41">
-                                <label for="choix41"> Stanley Kubrick</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix42">
-                                <label for="choix42">Andy Warhol</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix43">
-                                <label for="choix43">Peter Jackson</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz5" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">5/15</h1>
-                    </div>
-                    <div class="quizz qz5">
-                        <div>
-                            <img src="./assets/Illustrations/Batgame_7.png" alt="">
-                        </div>
-                        <div class="form-quizz qz5">
-                            <p>
-                                Batman c&apos;est aussi le nom d&apos;une ville en...
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix51">
-                                <label for="choix51">Turquie</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix52">
-                                <label for="choix52">Islande</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix53">
-                                <label for="choix53">Allemagne</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz6" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">6/15</h1>
-                    </div>
-                    <div class="quizz qz6">
-                        <div class="quizz6-img">
-                            <img src="./assets/Illustrations/Batgame_8.png" alt="">
-                        </div>
-                        <div class="form-quizz qz6">
-                            <p>
-                                Quel vilain apparaît pour la première fois dans le Batman 232 ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix61">
-                                <label for="choix61">Le Pingouin</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix62">
-                                <label for="choix62">Ra&apos;s al Ghul</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix63">
-                                <label for="choix63">Poison Ivy</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="quizz6-pied">
-                        <img class="quizz6-img1" src="./assets/Illustrations/Batgame_9.png" alt="">
-                        <img class="quizz6-img2" src="./assets/Illustrations/Batgame_9-1.png" alt="">
-                        <button class="btn-game btn-quizz">Question suivante</button>
-                    </div>
-                </div>
-                        
-            </section>
-            <section id="quizz7" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">7/15</h1>
-                    </div>
-                    <div class="quizz qz7">
-                        <div>
-                            <img src="./assets/Illustrations/Batgame_10.png" alt="">
-                        </div>
-                        <div class="form-quizz qz7">
-                            <p>
-                                Quelle ville Batman défend-il ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix71">
-                                <label for="choix71">Gotham City</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix72">
-                                <label for="choix72">Starling City</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix73">
-                                <label for="choix73">Hell&apos;s Kitchen</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz8" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">8/15</h1>
-                    </div>
-                    <div class="quizz qz8">
-                        <div>
-                            <img src="./assets/Illustrations/Batgame_11.png" alt="">
-                        </div>
-                        <div class="form-quizz qz8">
-                            <p>
-                                Tim Burtin a réalisé deux Batman, qui jouait Batman ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix81">
-                                <label for="choix81">Georges Clooney</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix82">
-                                <label for="choix82">Val Kilmer</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix83">
-                                <label for="choix83">Mickael Keaton</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz9" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">9/15</h1>
-                    </div>
-                    <div class="quizz qz9">
-                        <div class="quizz9-img">
-                            <img src="./assets/Illustrations/Batgame_12.png" alt="">
-                        </div>
-                        <div class="form-quizz qz9">
-                            <p>
-                                Dans son premier Batman (1989) Jack Nicholson jouait :
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix91">
-                                <label for="choix91">Le Pingouin</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix92">
-                                <label for="choix92">L&apos;Homme Mystère</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix93">
-                                <label for="choix93">Le Joker</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="quizz9-pied">
-                        <img class="quizz9-img1" src="./assets/Illustrations/Batgame_13-1.png" alt="">
-                        <img class="quizz9-img2" src="./assets/Illustrations/Batgame_13.png" alt="">
-                        <button class="btn-game btn-quizz">Question suivante</button>
-                    </div>
-                </div>
-            </section>
-            <section id="quizz10" class="content-quizz">
-                <div class="container">
-                    <div class="quizz10-img">
-                        <h1 class="num-quizz">10/15</h1>
-                    </div>
-                    <div class="quizz qz10">
-                        <div class="quizz10-new">
-                            <div class="">
-                                <img src="./assets/Illustrations/Batgame_14.png" alt="">
-                            </div>
-                            <div class="form-quizz qz10">
-                                <p>
-                                    Qui est Jonathan Crane ? 
-                                </p>
-                                <div class="choix">
-                                    <input type="checkbox" name="coche" id="choix101">
-                                    <label for="choix101">L&apos;Épouvantail</label>
-                                </div>
-                                <div class="choix">
-                                    <input type="checkbox" name="coche" id="choix102">
-                                    <label for="choix102">Le Joker</label>
-                                </div>
-                                <div class="choix">
-                                    <input type="checkbox" name="coche" id="choix103">
-                                    <label for="choix103">Hugo Strange</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quizz10-tete-img">
-                            <img src="./assets/Illustrations/Batgame_15.png" alt="">
-                        </div>
+            <section id="quizz" class="content-quizz"></section>
 
+           <section id="quizz">
+            <div id="question-container" style="display: none;">
+                <h1 id="question-title"></h1>
+                <h3 id="question"></h3>
+                <!--<div id="image-container"></div>-->
+                <div class="container-quizz">
+                    <div class="flex-item item1">
+                        <img id="image-container" src="" alt="Image" class="">
                     </div>
-                    <div class="quizz10-pied">
-                        <button class="btn-game btn-quizz">Question suivante</button>
-                        <img src="./assets/Illustrations/Batgame_16.png" alt="">
+                    <div class="flex-item item2">
+                        <form id="response-form">
+                            <div>
+                                <input type="radio" name="response" value="0">
+                                <label id="response0"></label><br>
+                            </div>
+                            <div>
+                                <input type="radio" name="response" value="1">
+                                <label id="response1"></label><br>
+                            </div>
+                            <div>
+                                <input type="radio" name="response" value="2">
+                                <label id="response2"></label><br>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </section>
-            <section id="quizz11" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">11/15</h1>
-                    </div>
-                    <div class="quizz qz11">
-                        <div>
-                            <img src="./assets/Illustrations/Batgame_17.png" alt="">
-                        </div>
-                        <div class="form-quizz qz11">
-                            <p>
-                                Qui est l&apos;interprète de Catwoman dans le nouveau Batman de Matt Reeves (2022) ? 
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix111">
-                                <label for="choix111">Emma Watson</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix112">
-                                <label for="choix112">Gigi Hadid</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix113">
-                                <label for="choix113">Lola Iolani Momoa</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix114">
-                                <label for="choix114">Zoë Kravitz</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
+                <div class="bouton-quizz">
+                    <button id="next-button" class="btn-game btn-quizz">Question suivante</button>
                 </div>
-            </section>
-            <section id="quizz12" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">12/15</h1>
-                    </div>
-                    <div class="quizz qz12">
-                        <div class="quizz12-img">
-                            <img src="./assets/Illustrations/Batgame_18.png" alt="">
-                        </div>
-                        <div class="form-quizz qz12">
-                            <p>
-                                Quel est le prénom des parents du jeune Bruce Wayne ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix121">
-                                <label for="choix121">Thomas et Martha</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix122">
-                                <label for="choix122">Elaine et Georges</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix123">
-                                <label for="choix123">Martha et James</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz13" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">13/15</h1>
-                    </div>
-                    <div class="quizz qz13">
-                        <div class="quizz13-img">
-                            <img src="./assets/Illustrations/Batgame_19.png" alt="">
-                        </div>
-                        <div class="form-quizz qz13">
-                            <p>
-                                Qui interprète le Joker en 2008 ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix131">
-                                <label for="choix131">Heath Legder</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix132">
-                                <label for="choix132">Heath Legder</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix133">
-                                <label for="choix133">Heath Legder</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz14" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">14/15</h1>
-                    </div>
-                    <div class="quizz qz14">
-                        <div>
-                            <img src="./assets/Illustrations/Batgame_20.png" alt="">
-                        </div>
-                        <div class="form-quizz qz14">
-                            <p>
-                                En quelle année Robin fait il sa première apparition ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix141">
-                                <label for="choix141">1940</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix142">
-                                <label for="choix142">1936</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix143">
-                                <label for="choix143">1941</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-            <section id="quizz15" class="content-quizz">
-                <div class="container">
-                    <div>
-                        <h1 class="num-quizz">15/15</h1>
-                    </div>
-                    <div class="quizz qz15">
-                        <div class="quizz15-img">
-                            <img src="./assets/Illustrations/Batgame_21.png" alt="">
-                        </div>
-                        <div class="form-quizz qz15">
-                            <p>
-                                Qui est la fille de Batman et Catwoman (Earth - 2) ?
-                            </p>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix151">
-                                <label for="choix151">Oracle</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix152">
-                                <label for="choix152">Huntress</label>
-                            </div>
-                            <div class="choix">
-                                <input type="checkbox" name="coche" id="choix153">
-                                <label for="choix153">Black Canary</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn-game btn-quizz">Question suivante</button>
-                </div>
-            </section>
-        </main>
-    
+            </div>
+                <!--Message de nitification, mauvaise réponse
+                <div id="erreur-message"></div>
+              </div>-->
+              
+              
+              <div id="answers-container"></div>
+              <!--Box de score-->
+              <div id="score-popup" class="popup">
+                <h1 id="titre-message"></h1>
+                <p id="score-message"></p>
+                <button id="restart-button" class="btn-game btn-quizz">Recommencer le quizz</button>
+              </div>
 
-    
+              <!--Box d'erreur-->
+              <div id="dialog-box">
+                <h2 id="dialog-title"></h2>
+                <p id="dialog-content"></p>
+                <button id="dialog-button" class="btn-game btn-quizz">OK</button>
+              </div>
+
+              <!--Souris personnalisé-->
+              <div id="souri" style="display: none;"></div>
+           </section>
+   
     <footer>
         <div class="contact-titre">
             <div class="footer-texte">
@@ -551,7 +124,7 @@
                 </span>
             </div>
             <div class="footer-logo">
-                <a href="" class="logo-social" width="50px">
+                <a href="index.html" class="logo-social" width="50px">
                     <img src="./assets/Logos/logo_sayna_white.png" alt="" style="width: 3%;">
                     <img src="./assets/Logos/icon_x.png" alt="" >
                     <img src="./assets/Logos/icon_DC.png" alt="" style="width: 3%;">
@@ -562,33 +135,7 @@
             </div>
         </div>
     </footer>
-    <!--<script src="./assets/js/script.js"></script>-->
-    <script>
-        const btnDemarrer = document.querySelector('.demarrer');
-        const sectionAvantQuizz = document.querySelector('#avant-quizz');
-        const sectionQuizz1 = document.querySelector('#quizz1');
-
-        btnDemarrer.addEventListener('click', () => {
-        sectionAvantQuizz.style.display = 'none'; // Cacher la section avant-quizz
-        sectionQuizz1.style.display = 'block'; // Afficher la section quizz1
-        sectionQuizz1.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Faire défiler vers la section quizz1 début mais pas bas de la section
-        });
-        
-        const btnQuizzs = document.querySelectorAll('.btn-quizz');
-
-btnQuizzs.forEach((btnQuizz) => {
-  btnQuizz.addEventListener('click', () => {
-    const currentQuizz = btnQuizz.getAttribute("id");
-    console.log(currentQuizz);
-    const currentSection = document.querySelector(`#quizz${currentQuizz}`);
-    const nextQuizz = Number(currentQuizz) + 1;
-    const nextSection = document.querySelector(`#quizz${nextQuizz}`);
-
-    currentSection.style.display = 'none'; // Masquer la section actuelle
-     nextSection.style.display = 'block'; // Afficher la prochaine section
-    nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Faire défiler vers la prochaine section
-  });
-});
-    </script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script2.js"></script>
 </body>
 </html>
