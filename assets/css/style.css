@@ -85,7 +85,7 @@ button{
     }
 
 
-    /*fade in de tous les élément du site*/
+    /*fade in de tous les élément du site
     @keyframes fade-in {
         from {
           opacity: 0;
@@ -99,7 +99,20 @@ button{
       .fade-in {
         opacity: 0;
         animation: fade-in 1s ease-in-out forwards;
-      }
+      }*/
+
+/*apparition avec un mouvement slide*/
+.fade-in {
+    opacity: 0;
+    transform: translateX(-50px); /* Décalage initial de -50px vers la gauche */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition pour l'animation */
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateX(0); /* Décalage final de 0px (pas de décalage) */
+  }
+
+  
     /*un contener où on utilise que 80% de la page, avec des marges à gauche et droite, sur BOOTSTRAP c'est facile-------*/
     .container{
         width:80%;

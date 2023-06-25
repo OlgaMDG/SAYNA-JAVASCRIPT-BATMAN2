@@ -1,4 +1,28 @@
   $(document).ready(function() {
+    //apparition avec un mouvement slide
+        // Fonction pour vérifier si un élément est visible à l'écran
+        function isElementInViewport(element) {
+          var rect = element.getBoundingClientRect();
+          return (
+            rect.left >= 0 &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+            rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+          );
+        }
+        // Fonction pour ajouter la classe "fade-in" aux éléments visibles
+        function handleScroll() {
+          var elements = document.querySelectorAll('.fade-in');
+          for (var i = 0; i < elements.length; i++) {
+            if (isElementInViewport(elements[i])) {
+              elements[i].classList.add('visible');
+            }
+          }
+        }
+        // Ajoutez un écouteur d'événement pour détecter le défilement de la page
+        window.addEventListener('scroll', handleScroll);
+
+        
     var questions = [];
     var currentQuestion = 0;
     var currentQuestionIndex = 0;
